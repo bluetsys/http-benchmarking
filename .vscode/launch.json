@@ -1,0 +1,83 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // {
+        //     "name": "PowerShell Launch Script",
+        //     "type": "PowerShell",
+        //     "request": "launch",
+        //     "script": "enter path or command to execute e.g.: ${workspaceFolder}/src/foo.ps1 or Invoke-Pester",
+        //     "cwd": "${cwd}"
+        // },
+        {
+            "name": "8111 dotnet webapi",
+            "type": "coreclr",
+            "request": "launch",
+            // "preLaunchTask": "build",
+            "program": "${workspaceFolder}/server-dotnet-webapi/bin/Release/net7.0/dotnet-webapi.dll",
+            "args": [
+                "--Logging:LogLevel:Microsoft=Warning",
+                "--urls=http://*:8111/"
+            ],
+            "cwd": "${workspaceFolder}/server-dotnet-webapi",
+            "console": "internalConsole",
+        },
+        {
+            "name": "8211 python django",
+            "program": "${workspaceFolder}/server-python-django/app.py",
+            "type": "python",
+            "request": "launch",
+            "args": [
+                "runserver",
+                "0.0.0.0:8211",
+            ],
+        },
+        {
+            "name": "8221 python fastapi",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "--app-dir=server-python-fastapi",
+                "app:app",
+                "--reload",
+                "--host=0.0.0.0",
+                "--port=8221",
+            ],
+        },
+        {
+            "name": "8231 python flask",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "${workspaceFolder}/server-python-flask/app.py",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [
+                "run",
+                "--host=0.0.0.0",
+                "--port=8231",
+            ],
+        },
+        {
+            "name": "8311 node express",
+            "program": "${workspaceFolder}/server-node-express/app.js",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "0.0.0.0",
+                "8311"
+            ]
+        },
+        {
+            "name": "8321 node http",
+            "program": "${workspaceFolder}/server-node-http/app.js",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "0.0.0.0",
+                "8321"
+            ]
+        }
+    ]
+}

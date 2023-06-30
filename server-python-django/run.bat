@@ -1,0 +1,1 @@
+docker run -d -p 8002:80 --name python-django wymoon2690/python-django

@@ -1,0 +1,6 @@
+localhost
+
+reverse_proxy / {
+	to korean-flask-core-app-1:5000 korean-flask-core-app-2:5000 korean-flask-core-app-3:5000 korean-flask-core-app-4:5000
+	lb_policy   random_choose 2
+}

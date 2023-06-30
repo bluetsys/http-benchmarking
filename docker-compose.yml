@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+
+  caddy:
+    image: "caddy"
+    ports:
+      - "1080:80"
+      - "443:443"
+      - "2019:2019"
+    depends_on:
+      - core-app
+    volumes:
+      - "caddy_data:/data"
+      - "caddy_config:/config"
+      - "./caddy/Caddyfile:/etc/caddy/Caddyfile"
+
+  core-app:
+    image: wymoon2690/www
+    build: ./app
+    #networks:
+    #  - backend
+
+volumes: 
+  caddy_data:
+  caddy_config:

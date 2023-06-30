@@ -1,0 +1,1 @@
+docker run -d -p 8001:80 --name dotnet-webapi wymoon2690/dotnet-webapi

@@ -1,0 +1,1 @@
+docker buildx build --platform linux/amd64,linux/arm64/v8 -t wymoon2690/python-mecab-ko --push .
